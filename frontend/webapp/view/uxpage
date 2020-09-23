@@ -1,0 +1,104 @@
+	<ux:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" showEditHeaderButton="false">
+							<ux:headerTitle>
+								<ux:ObjectPageDynamicHeaderTitle>
+									<!--<breadcrumbs>-->
+									<!--	<m:Breadcrumbs id="breadcrumbsId" currentLocationText="Object Page Example" >-->
+									<!--		<m:Link text="Page 1 a very long link" press="handleLink1Press"/>-->
+									<!--		<m:Link text="Page 2 long link" press="handleLink2Press"/>-->
+									<!--	</m:Breadcrumbs>-->
+									<!--</breadcrumbs>-->
+									<ux:expandedHeading>
+										<m:Title id="userNameHeaderExpanded" text="Medha Karri" wrapping="true"/>
+									</ux:expandedHeading>
+									<ux:snappedHeading>
+										<m:FlexBox fitContainer="true" alignItems="Center">
+											
+											<m:Title id="userNameHeaderDesktop" text="Medha Karri" wrapping="true"/>
+										</m:FlexBox>
+									</ux:snappedHeading>
+									<!--<ux:expandedContent>-->
+									<!--	<m:Text id="emailHeaderExpandedContent" text="medha.karri@gmail.com"/>-->
+									<!--</ux:expandedContent>-->
+									<!--<ux:snappedContent>-->
+									<!--	<m:Text id="emailHeaderSnappedContent" text="medha.karri@gmail.com"/>-->
+									<!--</ux:snappedContent>-->
+									<!--<ux:snappedTitleOnMobile>-->
+									<!--	<m:Title id="userNameHeaderMobile" text="Medha Karri"/>-->
+									<!--</ux:snappedTitleOnMobile>-->
+									<ux:actions>
+										<!--	<m:OverflowToolbarButton icon="sap-icon://pull-down" text="show section" type="Emphasized" tooltip="pull-down"/>-->
+										<!--<m:OverflowToolbarButton icon="sap-icon://show" text="show state" tooltip="show"/>-->
+										<!--<m:Button id="idFullScreenButton" icon="sap-icon://full-screen" text="Toggle Footer" press="toggleFullScreen"/>-->
+										<!--<m:Image src="./css/servicenow-logo.png" width="350px"/>-->
+									</ux:actions>
+									<ux:navigationActions>
+										<!--<m:Image src="./css/servicenow-logo.png" width="350px"/>-->
+										<ux:ObjectPageHeaderActionButton icon="sap-icon://log" type="Transparent" tooltip="slim-arrow-up"/>
+										<!--<ux:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-down" type="Transparent" tooltip="slim-arrow-down"/>-->
+									</ux:navigationActions>
+									<!--<ux:content>-->
+									<!--<m:GenericTag text="Material Shortage" status="Warning"/>-->
+									<!--</ux:content>-->
+								</ux:ObjectPageDynamicHeaderTitle>
+							</ux:headerTitle>
+							<ux:headerContent>
+								<m:FlexBox wrap="Wrap">
+									<m:Avatar class="sapUiSmallMarginEnd" src="./css/User.PNG" displaySize="L"/>
+									<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+										<m:Text text="medha.karri@gmail.com"/>
+										<m:Text text="9376268019"/>
+									</layout:VerticalLayout>
+									
+								
+								</m:FlexBox>
+							</ux:headerContent>
+							<ux:sections>
+								<ux:ObjectPageSection title="Time">
+									<ux:subSections>
+										<ux:ObjectPageSubSection>
+											<ux:blocks>
+												<VBox alignContent="Center">
+													<Title text="Choose a day"/>
+							<u:CalendarDateInterval
+				id="calendar"  class="sapUiTinyMargin"
+				select="handleCalendarSelect"/>
+				
+					<Title text="Enter time"/>
+						<TimePicker
+				valueFormat="hh:mm a"
+				displayFormat="hh:mm a"
+				change="handleChange" class="sapUiTinyMargin"
+				placeholder="Time in"/>
+				
+				<TimePicker
+				valueFormat="hh:mm a"
+				displayFormat="hh:mm a"
+				change="handleChange" class="sapUiTinyMargin"
+				placeholder="Time out"/>
+				<Title text="Choose a category"/>
+				<ComboBox class="sapUiTinyMargin"
+				items="">
+				<core:Item key="key" text="App Development" />
+			</ComboBox>
+			
+				<m:Button type="Accept" icon="sap-icon://add" iconFirst="true" text="Add to this day" class="sapUiTinyMargin"/>
+					<Title text="Entries for the day"/>
+			<List	binding="" class="sapUiTinyMargin" mode="Delete">
+				<StandardListItem title="App Development"
+					description="12:00AM to 2:10AM"
+					counter="2" infoState="Information" />
+			</List>
+						</VBox>
+											</ux:blocks>
+										</ux:ObjectPageSubSection>
+									</ux:subSections>
+								</ux:ObjectPageSection>
+							</ux:sections>
+							<!--<footer>-->
+							<!--	<m:OverflowToolbar>-->
+							<!--		<m:ToolbarSpacer/>-->
+							<!--		<m:Button type="Accept" text="Accept"/>-->
+							<!--		<m:Button type="Reject" text="Reject"/>-->
+							<!--	</m:OverflowToolbar>-->
+							<!--</footer>-->
+						</ux:ObjectPageLayout>

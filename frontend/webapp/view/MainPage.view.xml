@@ -1,0 +1,164 @@
+<mvc:View controllerName="ygic.timeentry.kiosk.YGIC-TimeSheet-Kiosk.controller.MainPage" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"  class="sapUiSizeCompact"
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:ux="sap.uxap" 	xmlns:core="sap.ui.core" xmlns:ui="sap.ui.table" xmlns:m="sap.m" 	xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:card="sap.f.cards" xmlns:tnt="sap.tnt" xmlns:dnd="sap.ui.core.dnd" >
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" showHeader="false" title="{i18n>title}">
+					<content>
+							<IconTabBar
+								selectedKey="register"
+								id="idIconTabBar"
+								class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter
+				showAll="true"
+				count="12"
+				text="Registrations"
+				key="count" />
+			<IconTabSeparator />
+			<IconTabFilter
+				icon="sap-icon://add-contact"
+				iconColor="Positive"
+				count=""
+				text="Register"
+				key="register">
+				<f:Form
+			editable="true">
+			<f:title>
+				<core:Title text="Volunteer Details" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Contact Information">
+					<f:formElements>
+						<f:FormElement label="First Name">
+							<f:fields>
+								<Input value="" id="idFirstName" required="true"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Last Name">
+							<f:fields>
+								<Input value="" id="idLastName" required="true"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Email">
+							<f:fields>
+								<Input value="" type="Email" required="true"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Mobile">
+							<f:fields>
+								<Input value="" type="Number" required="true"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Phone(other)">
+							<f:fields>
+								<Input value="" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+				<Bar>
+					<contentMiddle>
+						<Button text="Register volunteer" type="Accept" />
+					</contentMiddle>
+				</Bar>
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://history"
+				iconColor="Critical"
+				count=""
+				text="Log Time"
+				key="Ok" >
+				<VBox alignContent="Center">
+					<Title text="Choose a candidate"/>
+					<ComboBox class="sapUiTinyMargin"
+					items="">
+					<core:Item key="key" text="Medha Karri" />
+				</ComboBox>
+					<Label text="Note: Use register tab if you do not find your name in the above list" wrapping="true" class="sapUiTinyMarginBottom"/>
+					<Title text="Choose a day"/>
+					<u:CalendarDateInterval
+					id="calendar" width="70%"  class="sapUiTinyMargin"
+					select="handleCalendarSelect"/>
+					<Title text="Choose a category"/>
+					<ComboBox class="sapUiTinyMargin"
+					items="" required="true">
+					<core:Item key="key" text="App Development" />
+				</ComboBox>
+					<Title text="Enter time"/>
+					<HBox>
+							<TimePicker
+								id="idTimeIn"
+								valueFormat="hh:mm a"
+								displayFormat="hh:mm a"
+								required="true"
+								change="handleTimeChange" class="sapUiTinyMargin"
+								placeholder="Time in"/>
+							<TimePicker
+								id="idTimeOut"
+								valueFormat="hh:mm a"
+								displayFormat="hh:mm a"
+								required="true"
+								change="handleTimeChange" class="sapUiTinyMargin"
+								placeholder="Time out"/>
+							<ObjectNumber
+							id="idHoursLogged"
+									class="sapUiTinyMargin 	sapMObjectNumberLarge"
+								number="" state="Success"
+								unit="" />
+					</HBox>
+				
+					<m:Button type="Accept" icon="sap-icon://add" iconFirst="true" text="Add to this day" class="sapUiTinyMargin"/>
+					<Title text="Entries for the day"/>
+					<List	binding="" class="sapUiTinyMargin" mode="Delete">
+					<StandardListItem title="App Development"
+						description="12:00AM to 2:10AM"
+						counter="2" infoState="Information" />
+				</List>
+				<Bar>
+					<contentRight>
+						<Button text="Save Timesheet" type="Accept" />
+					</contentRight>
+				</Bar>
+				</VBox>
+				</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://inventory"
+				iconColor="Negative"
+				count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+				text="Overweight"
+				key="Overweight" />
+		</items>
+	</IconTabBar>
+					</content>
+		<!--			<footer>-->
+		<!--	<OverflowToolbar>-->
+		<!--		<ToolbarSpacer/>-->
+		<!--		<Button text="Save" type="Accept" />-->
+		<!--		<Button text="Delete" />-->
+		<!--	</OverflowToolbar>-->
+		<!--</footer>-->
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
